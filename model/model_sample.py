@@ -7,6 +7,8 @@ Reference:
 
 Baseline code:
  - https://github.com/kuangliu/pytorch-cifar/blob/master/models/resnet.py
+
+DistributedDataParallel 동작을 확인하기 위해 ResNet18모델을 설계
 """
 import torch
 import torch.nn as nn

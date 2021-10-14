@@ -6,11 +6,12 @@
 ## Getting Started
 - torch.nn.parallel.DistributedDataParallel 을 이용한 구현 
 ```angular2html
+# 현재는 동작하지 않음 
 python main_DDP.py
 ```
 - apex.parallel.DistributedDataParallel 을 이용한 구현 
 ```
-python -m torch.distributed.launch --nproc_per_node=YOUR_GPU_COUNT main_apex.py --local_rank 2
+python -m torch.distributed.launch --nproc_per_node=YOUR_GPU_COUNT main_apex.py
 ```
 
 ### Prerequisites
