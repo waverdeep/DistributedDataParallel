@@ -11,9 +11,11 @@ import os
 os.environ['MASTER_ADDR'] = 'localhost'
 os.environ['MASTER_PORT'] = '29500'
 
+## 현재 동작하지 않음 ##
+
 
 def main(rank, gpu_size):
-    distributed.init_process_group(backend='nccl', rank=rank, world_size=gpu_size)
+    distributed.init_process_group(backend='nccl', rank=rank, world_size=gpu_size, init_method='env://')
 
     model = models.ResNet18()
 
@@ -32,5 +34,5 @@ def main(rank, gpu_size):
 if __name__ == '__main__':
     _gpu_size = torch.cuda.device_count()
     print('gpu_size: ', _gpu_size)
-    _rank = 1
+    _rank = 0
     multiprocessing.spawn(main, args=(_rank, ), nprocs=_gpu_size, join=True)
